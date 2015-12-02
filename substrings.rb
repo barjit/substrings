@@ -2,7 +2,7 @@ dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","o
 
 def substrings(input, dictionary)
   
-  words = input.downcase.split
+  words = input.downcase.scan(/[\w']+/)
   frequencies = Hash.new(0)
   
   search = words.map do |word|
@@ -16,11 +16,5 @@ def substrings(input, dictionary)
 
 end
 
-
-
-
-
 substrings("below", dictionary)
 substrings("Howdy partner, sit down! How's it going?", dictionary)
-
-
