@@ -5,7 +5,13 @@ def substrings(input, dictionary)
   words = input.downcase.split
   frequencies = Hash.new(0)
   
-  words.each {|word| frequencies[word] += 1}
+  search = words.map do |word|
+    if dictionary.include?(word)
+      frequencies[word] += 1
+    end
+  end
+
+
   frequencies.each {|word, count| puts "#{word} : #{count}"}
 
 end
@@ -15,5 +21,6 @@ end
 
 
 substrings("below", dictionary)
+substrings("Howdy partner, sit down! How's it going?", dictionary)
 
 
